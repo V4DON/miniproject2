@@ -129,7 +129,7 @@ class EmployeeTraining(Base):
 # Соединение
 class Connect():
     def create_connection():
-        engine = create_engine("postgresql://postgres:1234@localhost:5432/postgres")
+        engine = create_engine("postgresql://postgres@localhost:5432/postgres")
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()

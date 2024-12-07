@@ -22,7 +22,7 @@ class EmployeeForm(QDialog):
         super().__init__()
         self.session = session
         self.employee = employee
-        self.setWindowTitle("Добавление/Редактирование сотрудника")
+        self.setWindowTitle("Добавление сотрудника")
         self.setWindowIcon(QIcon('add.png'))
         self.layout = QFormLayout(self)
 
@@ -31,7 +31,7 @@ class EmployeeForm(QDialog):
         self.first_name = QLineEdit()
         self.middle_name = QLineEdit()
         self.phone_number = QLineEdit()
-        self.birth_date = QDateEdit(calendarPopup=True)
+        self.birth_date = QDateEdit()
         self.birth_date.setDate(QDate.currentDate())
         self.snils = QLineEdit()
         self.inn = QLineEdit()
@@ -40,7 +40,7 @@ class EmployeeForm(QDialog):
         self.work_experience_years.setRange(0, 50)
         self.marital_status = QComboBox()
         self.marital_status.addItems(['Холост/Не замужем', 'Женат/За мужем', 'Разведён/Разведена', 'Вдова/Вдовец'])
-        self.employment_date = QDateEdit(calendarPopup=True)
+        self.employment_date = QDateEdit()
         self.employment_date.setDate(QDate.currentDate())
         self.education = QComboBox()
         self.position = QComboBox()
@@ -55,8 +55,8 @@ class EmployeeForm(QDialog):
         self.layout.addRow("Дата рождения", self.birth_date)
         self.layout.addRow("СНИЛС", self.snils)
         self.layout.addRow("ИНН", self.inn)
-        self.layout.addRow("Паспорт ID", self.passport_id)
-        self.layout.addRow("Стаж (лет)", self.work_experience_years)
+        self.layout.addRow("Паспорт", self.passport_id)
+        self.layout.addRow("Стаж", self.work_experience_years)
         self.layout.addRow("Семейное положение", self.marital_status)
         self.layout.addRow("Дата трудоустройства", self.employment_date)
         self.layout.addRow("Образование", self.education)
@@ -217,7 +217,7 @@ class ReportForm(QDialog):
     def __init__(self, session):
         super().__init__()
         self.session = session
-        self.setWindowTitle("Формирование отчетов")
+        self.setWindowTitle("Создание отчетов")
         self.setWindowIcon(QIcon('report.png'))
         self.setFixedSize(400, 300)
         
